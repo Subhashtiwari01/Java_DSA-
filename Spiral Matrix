@@ -1,0 +1,50 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner (System.in);
+        int row=sc.nextInt();
+        int clm=sc.nextInt();
+        int [][]arr=new int[row][clm];
+        for(int i=0;i<row;i++){
+            for(int j=0;j<clm;j++){
+                arr[i][j]=sc.nextInt();
+            }
+        }
+        int minrow=0;
+        int maxrow=row-1;
+        
+        int minclm=0;
+        int maxclm=clm-1;
+        
+        int total=row*clm;
+        int count=0;
+        while(count <total){
+            for(int j=minclm;j<=maxclm&&count<total;j++){
+                System.out.print(arr[minrow][j]+"   ");
+                count++;
+            }
+            minrow++;
+            for(int i=minrow;i<=maxrow&&count<total;i++){
+                System.out.print(arr[i] [maxclm]+"   ");
+                count++;
+            }
+            maxclm--;
+            for(int j=maxclm;j>=minclm&& count <total;j--){
+                System.out.print(arr[maxrow] [j]+"   ");
+                count++;  
+            }
+            maxrow--;
+            for(int i=maxrow;i>=minrow&& count<total;i--){
+                System.out.print(arr[i][minclm]+"   ");
+                count++;
+            }
+            minclm++;
+            
+
+            
+        }
+    }
+}
